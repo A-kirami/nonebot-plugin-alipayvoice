@@ -27,6 +27,10 @@ _✨ 支付宝到账0.5元（ ✨_
 
 ## 💿 安装
 
+本插件依赖 `cn2an`, 请先输入以下指令安装 `cn2an`
+
+    pip install cn2an
+
 <details>
 <summary>使用 nb-cli 安装</summary>
 在 nonebot2 项目的根目录下打开命令行, 输入以下指令即可安装
