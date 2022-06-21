@@ -6,6 +6,7 @@ from nonebot.params import CommandArg
 
 alipay_voice = on_command("支付宝到账", aliases={"支付宝语音"})
 
+
 @alipay_voice.handle()
 async def alipay(matcher: Matcher, args: Message = CommandArg()):
     amount = args.extract_plain_text().replace("元", "")
@@ -16,7 +17,7 @@ async def alipay(matcher: Matcher, args: Message = CommandArg()):
             amount = cn2an.cn2an(amount, "smart")
         except Exception:
             await matcher.send("错误的，请输入正确的数字")
-    if 0.01 <= amount <= 999999999999.99:
+    if 0.01 <= float(amount) <= 999999999999.99:
         url = f"https://mm.cqu.cc/share/zhifubaodaozhang/mp3/{amount}.mp3"
         await matcher.send(MessageSegment.record(url))
     else:
